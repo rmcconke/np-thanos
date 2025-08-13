@@ -158,7 +158,7 @@ def F_k_nv(alphak_plus1, alphak_minus1, deltax, p, sigma, alpha_g, rho_g, alpha_
     return (pint - p)*dalphak_dx #24
 
 # Build mesh (+2 is because we use ghost cells to enforce BCs)
-cells = 40
+cells = 100
 x = np.linspace(0,12.5,cells+2)
 dx = x[1]-x[0]
 
@@ -346,6 +346,7 @@ alpha_ana = analytical_solution(x, t)
 plt.scatter(x,alpha,label='Simulation')
 plt.plot(x,alpha_ana,label='Analytical solution')
 plt.legend()
+plt.savefig('alpha.png')
 print('done')
 
 
